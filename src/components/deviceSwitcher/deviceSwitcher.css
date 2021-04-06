@@ -1,0 +1,46 @@
+.device-switcher {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 10%;
+  height: 10%;
+  justify-content: center;
+  width: 35rem;
+  z-index: 2;
+}
+
+.device-switcher__item {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  flex: 0 0 auto;
+  height: 6.5rem;
+  opacity: 0.4;
+  transition: 0.5s;
+  width: 10rem;
+}
+
+.device-switcher__item_active {
+  cursor: default;
+  opacity: 1;
+}
+
+.device-switcher__item:hover {
+  opacity: 1;
+}
+
+.device-switcher__item_phone {
+  background-image: url(./img/phone-small.svg);
+  width: 4rem;
+}
+
+.device-switcher__item_tablet {
+  background-image: url(./img/tablet-small.svg);
+  width: 8.9rem;
+}
+
+.device-switcher__item_desktop {
+  background-image: url(./img/desktop-small.svg);
+  width: 10.4rem;
+}

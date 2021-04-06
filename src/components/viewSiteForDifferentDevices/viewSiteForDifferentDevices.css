@@ -1,0 +1,64 @@
+.site-on-device {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+.iframe-wrapper {
+  border: 2px solid #000;
+  overflow: hidden;
+  position: absolute;
+}
+
+.iframe-wrapper iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/* styles for devices */
+
+.site-on-device_phone {
+  background-image: url(./img/phone.svg);
+  height: 607px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 355px;
+}
+
+.site-on-device_phone .iframe-wrapper {
+  height: 480px;
+  left: 4.3%;
+  top: 5.4%;
+  width: 320px;
+}
+
+.site-on-device_tablet {
+  background-image: url(./img/tablet.svg);
+  height: 835px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 1209px;
+}
+
+.site-on-device_tablet .iframe-wrapper {
+  height: 768px;
+  left: 3.1%;
+  top: 4%;
+  width: 1028px;
+}
+
+.site-on-device_desktop {
+  height: 100%;
+  width: 100%;
+}
+
+.site-on-device_desktop .iframe-wrapper {
+  border: none;
+  height: 100vh;
+  width: 100%;
+}

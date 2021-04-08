@@ -1,0 +1,34 @@
+.socialnets {
+  display: flex;
+  gap: 2rem;
+}
+
+.net {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: block;
+  height: 9rem;
+  opacity: 0.5;
+  width: 9rem;
+}
+
+.net:hover {
+  opacity: 1;
+}
+
+.github {
+  background-image: url(./img/github_black_circle.svg);
+}
+
+.telegram {
+  background-image: url(./img/telegram_black_circle.svg);
+}
+
+.linkedin {
+  background-image: url(./img/linkedin_black_circle.svg);
+}
+
+.mail {
+  background-image: url(./img/email_black_circle.svg);
+}

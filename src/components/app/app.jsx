@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import '../../assets/global.css';
+
+import Contacts from '../contacts/Contacts';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -7,9 +9,8 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('render');
     return (
-      <h1>SaLuT WEBPACK!!! !!</h1>
+      <Contacts />
     )
   }
 }

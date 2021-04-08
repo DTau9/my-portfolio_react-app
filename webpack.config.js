@@ -19,10 +19,31 @@ let conf = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.css$/,
+        test: /\.module\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]__[sha1:hash:hex:7]',
+              },
+            },
+          }
+        ],
+      },
+      {
+        test: /^((?!\.module).)*css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        type: 'asset',
+      },
     ]
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
   plugins: [
     new MiniCssExtractPlugin({

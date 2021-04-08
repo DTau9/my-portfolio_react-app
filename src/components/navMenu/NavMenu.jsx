@@ -1,5 +1,5 @@
 import React from 'react';
-import './navMenu.css';
+import './navMenu.module.css';
 import themes from '../../configs/themesToProjects';
 import dataProjects from '../../data/dataProjects'
 

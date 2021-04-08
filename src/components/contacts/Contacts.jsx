@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SocialNet from '../socialNet/SocialNet';
-import './contacts.css';
+import styles from './contacts.module.css';
 
-export default class Contacts extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="my-contacts">
-        <SocialNet />
-        <div className="my-contacts__photo"></div>
-      </div>
-    )
-  }
+export default function Contacts() {
+  return (
+    <div className={styles.contacts}>
+      <SocialNet />
+      <div className={styles.photo}></div>
+    </div>
+  )
 }

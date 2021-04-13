@@ -1,33 +1,64 @@
-import React from 'react';
-import './navMenu.module.css';
-import themes from '../../configs/themesToProjects';
+import React, { forwardRef } from 'react';
+import styles from './navMenu.module.css';
 import dataProjects from '../../data/dataProjects'
 
-const NavMenu = ({ onItemMenuClick, currentMenuItem }) => {
-  const handleClick = (name) => {
-    onItemMenuClick && onItemMenuClick(name)
-  }
-
-  return (
-    <nav className={`nav-menu ${themes[currentMenuItem]}`}>
-      {
-        dataProjects.map((item) => {
-          const { name, screenName, annotation } = item;
-          const active = (name === currentMenuItem) ? 'nav-menu__item_active' : '';
-          return (
-            <div
-              onClick={() => handleClick(name)}
-              key={name}
-              className={`nav-menu__item ${active}`}
-              data-item={name}>
-              <div className="nav-menu__item_name">{screenName}</div>
-              <div className="nav-menu__annotation">{annotation}</div>
-            </div>
-          )
-        })
-      }
-    </nav>
-  )
+const createList = (el, index) => {
+  return (typeof el !== 'string')
+    ? <ul key={index}>{el.map((el, index) => createList(el, index))}</ul>
+    : <li key={index}>{el}</li>;
 }
+
+const NavMenu = forwardRef(
+  ({ onItemMenuClick, currentMenuItem, currentDevice }, navMenuRef) => {
+    const handleClick = (name) => {
+      onItemMenuClick && onItemMenuClick(name)
+    }
+
+    const listItem = (
+      <div className={styles.projects}>
+        {
+          dataProjects.map((item) => {
+            const { name, screenName, annotation, dateCreation } = item;
+            const active = (name === currentMenuItem) ? styles['projects-item_active'] : '';
+            return (
+              <div
+                onClick={() => handleClick(name)}
+                key={name}
+                className={`${styles['projects-item']} ${active}`}
+                data-item={name}>
+                <div>{screenName}</div>
+                <div className={styles.annotation}>{annotation}</div>
+                <div className={styles.date}>{dateCreation}</div>
+              </div>
+            )
+          })
+        }
+      </div>
+    )
+
+    const description = dataProjects.reduce((acc, cur) => {
+      if (cur.description && cur.name === currentMenuItem && currentDevice === 'phone') {
+        return (acc = cur.description);
+      }
+      return acc;
+    }, false)
+
+    const viewDescription = description ?
+      <div className={styles.description}>
+        {createList(description)}
+      </div> :
+      null;
+
+    return (
+      <nav
+        ref={navMenuRef}
+        className={styles['nav-menu']}
+      >
+        { listItem}
+        { viewDescription}
+      </nav>
+    )
+  }
+)
 
 export default NavMenu;

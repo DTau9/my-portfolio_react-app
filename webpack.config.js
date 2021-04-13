@@ -1,7 +1,7 @@
 let path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-let conf = {
+let config = {
   entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -54,9 +54,9 @@ let conf = {
 
 module.exports = (env, options) => {
   let isProd = options.mode === 'production';
-  conf.devtool = isProd ? false : 'eval-cheap-module-source-map'
+  config.devtool = isProd ? false : 'eval-cheap-module-source-map'
   // пока не пофиксят баг с webpack-dev-server (в 4 версии должны испрвить)
-  conf.target = isProd ? 'browserslist' : 'web'
-  return conf;
+  config.target = isProd ? 'browserslist' : 'web'
+  return config;
 };
 

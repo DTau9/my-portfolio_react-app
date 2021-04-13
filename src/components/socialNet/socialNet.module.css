@@ -1,6 +1,6 @@
 .socialnets {
   display: flex;
-  gap: 2rem;
+  gap: 2em;
 }
 
 .net {
@@ -8,9 +8,9 @@
   background-position: center;
   background-size: contain;
   display: block;
-  height: 9rem;
+  height: 9em;
   opacity: 0.5;
-  width: 9rem;
+  width: 9em;
 }
 
 .net:hover {
@@ -18,17 +18,17 @@
 }
 
 .github {
-  background-image: url(./img/github_black_circle.svg);
+  background-image: url(../../assets/img/github_black_circle.svg);
 }
 
 .telegram {
-  background-image: url(./img/telegram_black_circle.svg);
+  background-image: url(../../assets/img/telegram_black_circle.svg);
 }
 
 .linkedin {
-  background-image: url(./img/linkedin_black_circle.svg);
+  background-image: url(../../assets/img/linkedin_black_circle.svg);
 }
 
 .mail {
-  background-image: url(./img/email_black_circle.svg);
+  background-image: url(../../assets/img/email_black_circle.svg);
 }

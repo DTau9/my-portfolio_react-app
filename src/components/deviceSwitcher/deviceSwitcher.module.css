@@ -5,7 +5,7 @@
   gap: 10%;
   height: 10%;
   justify-content: center;
-  width: 35rem;
+  width: 35em;
   z-index: 2;
 }
 
@@ -15,10 +15,10 @@
   background-size: contain;
   cursor: pointer;
   flex: 0 0 auto;
-  height: 6.5rem;
+  height: 6.5em;
   opacity: 0.4;
   transition: 0.5s;
-  width: 10rem;
+  width: 10em;
 }
 
 .device-switcher__item_active {
@@ -31,16 +31,22 @@
 }
 
 .device-switcher__item_phone {
-  background-image: url(./img/phone-small.svg);
-  width: 4rem;
+  background-image: url(../../assets/img/phone-small.svg);
+  width: 4em;
 }
 
 .device-switcher__item_tablet {
-  background-image: url(./img/tablet-small.svg);
-  width: 8.9rem;
+  background-image: url(../../assets/img/tablet-small.svg);
+  width: 8.9em;
 }
 
 .device-switcher__item_desktop {
-  background-image: url(./img/desktop-small.svg);
-  width: 10.4rem;
+  background-image: url(../../assets/img/desktop-small.svg);
+  width: 10.4em;
+}
+
+@media (max-width: 1023px) {
+  .device-switcher {
+    display: none;
+  }
 }

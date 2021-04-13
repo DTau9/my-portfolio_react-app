@@ -1,0 +1,71 @@
+.site-on-device {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-sizing: content-box;
+  margin: auto;
+  /* position: relative; */
+}
+
+.iframe-wrapper {
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/* styles for devices */
+
+.site-on-device_phone {
+  background-image: url(../../assets/img/phone.svg);
+  padding: 4em 2em 10em;
+}
+
+.site-on-device_phone .iframe-wrapper {
+  height: 48em;
+  width: 32em;
+}
+
+.site-on-device_tablet {
+  background-image: url(../../assets/img/tablet.svg);
+  padding: 3em 12em 3em 3em;
+}
+
+.site-on-device_tablet .iframe-wrapper {
+  height: 76.8em;
+  width: 102.4em;
+}
+
+.site-on-device_desktop {
+  height: 100%;
+  width: 100%;
+}
+
+.site-on-device_desktop .iframe-wrapper {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+/* /styles for devices */
+
+@media (max-width: 1600px) and (min-width: 1281px) {
+  .site-on-device {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .site-on-device {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1023) {
+  .site-on-device {
+    font-size: 0.65rem;
+  }
+}

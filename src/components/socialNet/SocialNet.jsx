@@ -25,7 +25,7 @@ export default function SocialNet() {
     <div className={styles.socialnets} >
       {
         socialnetsData.map(item => {
-          return <a className={`${styles.net} ${styles[item.name]}`} href={item.url} target="_blank" ></a>
+          return <a className={`${styles.net} ${styles[item.name]}`} href={item.url} key={item.name} target="_blank" ></a>
         })
       }
     </div >

@@ -1,10 +1,17 @@
 :root {
-  --nav-menu_width: 22.8vw;
+  --projects_width: 22.8vw;
   --description_width: 65.3vw;
-  --nav-menu_bg: #6BBAA3;
-  --nav-menu__item_color: #FFE6FF;
-  --nav-menu__item_color_active: #A0148E;
+  --projects_bg: #6BBAA3;
+  --projects-item_color: #FFE6FF;
+  --projects-item_color_active: #A0148E;
   --description_bg: #AE7AA3;
+  --mediaMaxWidthL: 1600px;
+  --mediaMaxWidthM: 1250px;
+  --mediaMaxWidthS: 767px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -14,52 +21,65 @@ html {
 
 body {
   color: #313628;
-  height: 100vh;
   margin: 0;
-  overflow: hidden;
-  width: 100vw;
 }
 
 .theme-lmarkt {
-  --nav-menu_bg: #6BBAA3;
-  --nav-menu__item_color: #FFE6FF;
-  --nav-menu__item_color_active: #A0148E;
+  --projects_bg: #6BBAA3;
+  --projects-item_color: #FFE6FF;
+  --projects-item_color_active: #A0148E;
   --description_bg: #AE7AA3;
 }
 
 .theme-russgaz {
-  --nav-menu_bg: #017DD8;
-  --nav-menu__item_color: #E6F4F1;
-  --nav-menu__item_color_active: #002670;
+  --projects_bg: #017DD8;
+  --projects-item_color: #E6F4F1;
+  --projects-item_color_active: #002670;
   --description_bg: #A4ABBD;
 }
 
 .theme-kvast {
-  --nav-menu_bg: #B08969;
-  --nav-menu__item_color: #DFE0DF;
-  --nav-menu__item_color_active: #834700;
+  --projects_bg: #B08969;
+  --projects-item_color: #DFE0DF;
+  --projects-item_color_active: #834700;
 }
 
 .theme-contacts {
-  --nav-menu_bg: #C3BAD8;
-  --nav-menu__item_color: #D7E5E8;
-  --nav-menu__item_color_active: #00486D;
+  --projects_bg: #C3BAD8;
+  --projects-item_color: #D7E5E8;
+  --projects-item_color_active: #00486D;
 }
 
 .theme-cm-expert {
-  --nav-menu_bg: #579395;
-  --nav-menu__item_color: #BEFCFE;
-  --nav-menu__item_color_active: #891F00;
+  --projects_bg: #579395;
+  --projects-item_color: #BEFCFE;
+  --projects-item_color_active: #891F00;
 }
 
 .theme-snake-js-native {
-  --nav-menu_bg: #B5B5B5;
-  --nav-menu__item_color: #DDEEEF;
-  --nav-menu__item_color_active: #474554;
+  --projects_bg: #B5B5B5;
+  --projects-item_color: #DDEEEF;
+  --projects-item_color_active: #474554;
 }
 
 .theme-snake-react {
-  --nav-menu_bg: #9A6387;
-  --nav-menu__item_color: #EFEFDC;
-  --nav-menu__item_color_active: #5e3d19;
+  --projects_bg: #9A6387;
+  --projects-item_color: #EFEFDC;
+  --projects-item_color_active: #5e3d19;
+}
+
+@media (max-width: 1600px) and (min-width: 1024px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --projects_width: 100%;
+    --description_width: 100%;
+  }
+  html {
+    font-size: 6px;
+  }
 }

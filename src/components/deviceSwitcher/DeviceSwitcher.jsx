@@ -1,19 +1,23 @@
 import React from 'react';
-import './deviceSwitcher.css';
+import styles from './deviceSwitcher.module.css';
 
-const DeviceSwitcher = ({ devicesCurrentMenuItem, activeDevice, onDeviceClick }) => {
+const DeviceSwitcher = ({ devicesCurrentMenuItem, currentDevice, onDeviceClick }) => {
   const handleClick = (devName) => {
     onDeviceClick && onDeviceClick(devName)
   }
+
   const viewDevice = devicesCurrentMenuItem ?
-    <div className="device-switcher">
+    <div className={styles['device-switcher']}>
       {
         devicesCurrentMenuItem.map(dev => {
           const devName = dev;
           return <i
             onClick={() => handleClick(devName)}
-            className={`
-        ${activeDevice === dev ? 'device-switcher__item_active' : ''} device-switcher__item device-switcher__item_${dev}`}
+            className={
+              `${(currentDevice === dev) ? styles['device-switcher__item_active'] : ''}
+              ${styles['device-switcher__item']}
+              ${styles[`device-switcher__item_${dev}`]}`
+            }
             key={dev}
             data-device={dev} />
         })

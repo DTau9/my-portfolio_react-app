@@ -1,0 +1,131 @@
+.container-app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.view-project {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2%;
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: 0.7s ease-out;
+}
+
+.current-project {
+  display: none;
+}
+
+.shift-section {
+  transform: translateX(0);
+}
+
+.shift-section-for-desktop {
+  position: absolute;
+  opacity: 0.5;
+  transform: translateX(-85%);
+}
+
+.shift-section-for-desktop:hover {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* nav-icon */
+
+.burger-wrapper {
+  display: none;
+  font-size: 6px;
+  z-index: 1;
+}
+
+.burger {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1.8em;
+  position: relative;
+  width: 4.5em;
+}
+
+.burger span {
+  display: block;
+  height: 0.1em;
+  background-color: var(--projects-item_color_active);
+  /* box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, .2); */
+  margin: 0.6em 0;
+  transition: .5s;
+  width: 4.5em;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotateY(180deg) rotateZ(45deg) translate(0em, 0em);
+}
+
+.burger.active span:nth-child(2) {
+  transform: rotateY(180deg) rotateZ(-45deg) translate(1em, -1em);
+}
+
+.burger p {
+  display: block;
+  position: absolute;
+  bottom: 0em;
+  width: 100%;
+  text-align: center;
+  font: bold 1.2em/100% sans-serif;
+  color: var(--projects-item_color_active);
+  backface-visibility: hidden;
+  transition: .5s;
+  margin: 0;
+}
+
+.burger.active p.menu {
+  transform: rotateY(180deg);
+}
+
+.burger p.close {
+  transform: rotateY(180deg);
+}
+
+.burger.active p.close {
+  transform: rotateY(0deg);
+  color: var(--projects-item_color_active);
+}
+
+/* /nav-icon */
+
+@media (max-width: 1023px) {
+  .container-app {
+    flex-direction: column;
+    position: relative;
+  }
+  .view-project {
+    transform: translateY(-100%) translateX(0);
+  }
+  .current-project {
+    background-color: var(--projects_bg);
+    color: var(--projects-item_color_active);
+    display: block;
+    flex: 0 0 auto;
+    font-size: 5em;
+    height: 6rem;
+    text-align: center;
+  }
+  .opacity {
+    opacity: 0;
+  }
+  .burger-wrapper {
+    display: block;
+    bottom: 6px;
+    left: 12px;
+    position: fixed;
+  }
+  .shift-section {
+    transform: translateY(0);
+  }
+}

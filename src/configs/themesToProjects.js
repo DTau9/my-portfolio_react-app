@@ -6,7 +6,6 @@ const themes = {
   'cm-expert': 'theme-cm-expert',
   'snake-js-native': 'theme-snake-js-native',
   'snake-react': 'theme-snake-react'
-
 }
 
 export default themes;

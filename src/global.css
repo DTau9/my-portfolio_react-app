@@ -1,13 +1,10 @@
 :root {
-  --projects_width: 22.8vw;
+  --projects_width: 18vw;
   --description_width: 65.3vw;
-  --projects_bg: #6BBAA3;
-  --projects-item_color: #FFE6FF;
-  --projects-item_color_active: #A0148E;
+  --projects_bg: #8BAFCE;
+  --projects-item_color: #F6F9FC;
+  --projects-item_color_active: #394855;
   --description_bg: #AE7AA3;
-  --mediaMaxWidthL: 1600px;
-  --mediaMaxWidthM: 1250px;
-  --mediaMaxWidthS: 767px;
 }
 
 * {
@@ -36,6 +33,12 @@ body {
   --projects-item_color: #E6F4F1;
   --projects-item_color_active: #002670;
   --description_bg: #A4ABBD;
+}
+
+.theme-portfolio-components {
+  --projects_bg: #8BAFCE;
+  --projects-item_color: #F6F9FC;
+  --projects-item_color_active: #394855;
 }
 
 .theme-kvast {
@@ -68,13 +71,13 @@ body {
   --projects-item_color_active: #5e3d19;
 }
 
-@media (max-width: 1600px) and (min-width: 1024px) {
+@media (max-width: 1600px) and (min-width: 1025px) {
   html {
     font-size: 8px;
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   :root {
     --projects_width: 100%;
     --description_width: 100%;

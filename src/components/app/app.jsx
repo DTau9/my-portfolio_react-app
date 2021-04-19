@@ -1,6 +1,4 @@
 import React, { Component, createRef } from 'react';
-import dataProjects from '../../data/dataProjects';
-import themes from '../../configs/themesToProjects';
 
 import Contacts from '../contacts/Contacts';
 import NavMenu from '../navMenu/NavMenu';
@@ -8,6 +6,8 @@ import DeviceSwitcher from '../deviceSwitcher/DeviceSwitcher';
 import ViewProject from '../viewProject/ViewProject';
 
 import styles from './app.module.css';
+import dataProjects from '../../data/dataProjects';
+import themes from '../../configs/themesToProjects';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,34 +21,48 @@ export default class App extends Component {
     }
   }
 
+  getNewDevice = (name) => {
+    return dataProjects.reduce((acc, cur) => {
+      if (cur.name === name && cur.device) {
+        if (cur.device.includes(this.state.currentDevice)) {
+          return acc = this.state.currentDevice
+        } else {
+          return acc = cur.device[0];
+        }
+      }
+      return acc;
+    }, this.state.currentDevice)
+  }
+
+  getDevicesCurrentMenuItem = () => {
+    const dataCurrentItem = dataProjects.find(item => {
+      if (item.name === this.state.currentMenuItem) return true;
+    });
+    if (document.documentElement.clientWidth > 1024) {
+      return dataCurrentItem.device ? dataCurrentItem.device : false;
+    } else {
+      return false;
+    }
+  }
+
   onItemMenuClick = (name) => {
     if (this.state.currentMenuItem !== name) {
       this.toggleClass();
 
-      if (document.documentElement.clientWidth > 1023) {
+      if (document.documentElement.clientWidth > 1024) {
         setTimeout(() => {
-          const newCurrentDevice = dataProjects.reduce((acc, cur) => {
-            if (cur.name === name && cur.device) {
-              if (cur.device.includes(this.state.currentDevice)) {
-                return acc = this.state.currentDevice
-              } else {
-                return acc = cur.device[0]
-              }
-            }
-            return acc;
-          }, this.state.currentDevice)
-
           this.setState({
             currentMenuItem: name,
-            currentDevice: newCurrentDevice
+            currentDevice: this.getNewDevice(name)
           })
           this.toggleClass();
         }, 700)
       }
 
-      if (document.documentElement.clientWidth <= 1023) {
+      if (document.documentElement.clientWidth <= 1024) {
         this.setState({
-          currentMenuItem: name
+          currentMenuItem: name,
+          currentDevice: this.getNewDevice(name)
         })
       }
     }
@@ -67,8 +81,13 @@ export default class App extends Component {
     }
   }
 
+  onBurger = (e) => {
+    e.preventDefault();
+    this.toggleClass();
+  }
+
   toggleClass = () => {
-    if (document.documentElement.clientWidth > 1023) {
+    if (document.documentElement.clientWidth > 1024) {
       if (this.state.currentDevice === 'desktop' && this.getDevicesCurrentMenuItem()) {
         this.navMenuRef.current.classList.toggle(styles['shift-section-for-desktop'])
       } else {
@@ -77,7 +96,7 @@ export default class App extends Component {
       this.viewProjectRef.current.classList.toggle(styles['shift-section']);
     }
 
-    if (document.documentElement.clientWidth <= 1023) {
+    if (document.documentElement.clientWidth <= 1024) {
       this.navMenuRef.current.classList.toggle(styles['shift-section']);
       this.viewProjectRef.current.classList.toggle(styles['shift-section']);
       this.burgerRef.current.classList.toggle(styles.active);
@@ -85,29 +104,39 @@ export default class App extends Component {
     }
   }
 
-  getDevicesCurrentMenuItem = () => {
-    const dataCurrentItem = dataProjects.find(item => {
-      if (item.name === this.state.currentMenuItem) return true;
-    });
-    if (document.documentElement.clientWidth > 1023) {
-      return dataCurrentItem.device ? dataCurrentItem.device : false;
-    } else { return false }
+  setBaseConfig = () => {
+    if (document.documentElement.clientWidth <= 1024) {
+      this.viewProjectRef.current.classList.remove(styles['shift-section']);
 
-  }
-
-  onBurger = (e) => {
-    e.preventDefault();
-    this.toggleClass();
-  }
-
-  componentDidMount() {
-    this.toggleClass();
-    if (document.documentElement.clientWidth <= 1023) {
-      this.viewProjectRef.current.classList.toggle(styles['shift-section']);
+      this.navMenuRef.current.classList.add(styles['shift-section']);
+      this.navMenuRef.current.classList.remove(styles['shift-section-for-desktop']);
       this.navMenuRef.current.classList.remove(styles['opacity']);
+
+      this.burgerRef.current.classList.add(styles.active);
+
+      this.setState({
+        currentDevice: this.getNewDevice()
+      })
+    } else {
+      this.viewProjectRef.current.classList.add(styles['shift-section']);
+
+      this.navMenuRef.current.classList.add(styles['shift-section']);
+      this.navMenuRef.current.classList.remove(styles['opacity']);
+
+      this.setState({
+        currentDevice: this.getNewDevice()
+      })
     }
   }
 
+  componentDidMount() {
+    window.addEventListener("resize", this.setBaseConfig);
+    this.setBaseConfig();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.setBaseConfig);
+  }
 
   render() {
     const { currentMenuItem } = this.state;

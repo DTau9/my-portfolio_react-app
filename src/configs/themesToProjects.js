@@ -5,7 +5,8 @@ const themes = {
   kvast: 'theme-kvast',
   'cm-expert': 'theme-cm-expert',
   'snake-js-native': 'theme-snake-js-native',
-  'snake-react': 'theme-snake-react'
+  'snake-react': 'theme-snake-react',
+  'portfolio-components': 'theme-portfolio-components'
 }
 
 export default themes;

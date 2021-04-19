@@ -4,6 +4,34 @@ const dataProjects = [
     screenName: 'Контакты'
   },
   {
+    name: 'portfolio-components',
+    screenName: 'Компоненты',
+    dateCreation: '04.04.2021',
+    annotation: 'Компоненты портфолио',
+    url: 'https://dtau9.github.io/portfolio-react-components/',
+  },
+  {
+    name: 'snake-react',
+    screenName: 'Игра Змейка',
+    dateCreation: '28.03.2021',
+    annotation: 'Написана на React',
+    url: 'https://dtau9.github.io/react-snake-component/'
+  },
+  {
+    name: 'cm-expert',
+    screenName: 'Car Market',
+    dateCreation: '02.11.2020',
+    annotation: 'ТЗ "cm.expert"',
+    url: 'https://dtau9.github.io/task_logo-autoexpert/'
+  },
+  {
+    name: 'snake-js-native',
+    screenName: 'Игра Змейка',
+    dateCreation: '29.11.2020',
+    annotation: 'Написана на native JS',
+    url: 'https://dtau9.github.io/game-snake/'
+  },
+  {
     name: 'lmarkt',
     screenName: 'Lmarkt',
     dateCreation: '29.10.2020',
@@ -30,27 +58,6 @@ const dataProjects = [
     device: ['desktop'],
     adaptiveDesign: true,
     url: 'https://dtau9.github.io/kvast/'
-  },
-  {
-    name: 'cm-expert',
-    screenName: 'Car Market',
-    dateCreation: '02.11.2020',
-    annotation: 'ТЗ "cm.expert"',
-    url: 'https://dtau9.github.io/task_logo-autoexpert/'
-  },
-  {
-    name: 'snake-js-native',
-    screenName: 'Игра Змейка',
-    dateCreation: '29.11.2020',
-    annotation: 'Написана на native JS',
-    url: 'https://dtau9.github.io/game-snake/'
-  },
-  {
-    name: 'snake-react',
-    screenName: 'Игра Змейка',
-    dateCreation: '28.03.2021',
-    annotation: 'Написана на React',
-    url: 'https://dtau9.github.io/react-snake-component/'
   },
 ]
 

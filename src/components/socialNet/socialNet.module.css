@@ -18,17 +18,17 @@
 }
 
 .github {
-  background-image: url(../../assets/img/github_black_circle.svg);
+  background-image: url(../../images/github_black_circle.svg);
 }
 
 .telegram {
-  background-image: url(../../assets/img/telegram_black_circle.svg);
+  background-image: url(../../images/telegram_black_circle.svg);
 }
 
 .linkedin {
-  background-image: url(../../assets/img/linkedin_black_circle.svg);
+  background-image: url(../../images/linkedin_black_circle.svg);
 }
 
 .mail {
-  background-image: url(../../assets/img/email_black_circle.svg);
+  background-image: url(../../images/email_black_circle.svg);
 }

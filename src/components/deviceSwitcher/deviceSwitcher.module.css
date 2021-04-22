@@ -31,17 +31,17 @@
 }
 
 .device-switcher__item_phone {
-  background-image: url(../../assets/img/phone-small.svg);
+  background-image: url(../../images/phone-small.svg);
   width: 4em;
 }
 
 .device-switcher__item_tablet {
-  background-image: url(../../assets/img/tablet-small.svg);
+  background-image: url(../../images/tablet-small.svg);
   width: 8.9em;
 }
 
 .device-switcher__item_desktop {
-  background-image: url(../../assets/img/desktop-small.svg);
+  background-image: url(../../images/desktop-small.svg);
   width: 10.4em;
 }
 

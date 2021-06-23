@@ -18,7 +18,7 @@ const NavMenu = forwardRef(
       <div className={styles.projects}>
         {
           dataProjects.map((item) => {
-            const { name, screenName, annotation, dateCreation } = item;
+            const { name, screenName, annotation } = item;
             const active = (name === currentMenuItem) ? styles['projects-item_active'] : '';
             return (
               <div
@@ -28,7 +28,6 @@ const NavMenu = forwardRef(
                 data-item={name}>
                 <div>{screenName}</div>
                 <div className={styles.annotation}>{annotation}</div>
-                <div className={styles.date}>{dateCreation}</div>
               </div>
             )
           })
@@ -54,8 +53,8 @@ const NavMenu = forwardRef(
         ref={navMenuRef}
         className={styles['nav-menu']}
       >
-        { listItem}
-        { viewDescription}
+        {listItem}
+        {viewDescription}
       </nav>
     )
   }

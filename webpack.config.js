@@ -15,16 +15,16 @@ const plugins = [
     template: "./src/index.html",
     favicon: "./src/images/favicon.ico"
   }),
-  // new ImageMinimizerPlugin({
-  //   minimizerOptions: {
-  //     plugins: [
-  //       ["mozjpeg", {
-  //         progressive: true,
-  //         quality: 50
-  //       }]
-  //     ],
-  //   },
-  // }),
+  new ImageMinimizerPlugin({
+    minimizerOptions: {
+      plugins: [
+        ["mozjpeg", {
+          progressive: true,
+          quality: 50
+        }]
+      ],
+    },
+  }),
 ];
 
 if (process.env.NODE_ENV === "production") {
@@ -41,7 +41,7 @@ module.exports = {
 
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"),
     assetModuleFilename: "images/[hash][ext][query]",
   },
 

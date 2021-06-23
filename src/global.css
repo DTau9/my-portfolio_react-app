@@ -35,16 +35,24 @@ body {
   --description_bg: #A4ABBD;
 }
 
+.theme-lucky-group {
+  --projects_bg: #428a60;
+  --projects-item_color: #E6F4F1;
+  --projects-item_color_active: #313628;
+  --description_bg: #f2f2f2;
+}
+
+.theme-dj-store {
+  --projects_bg: #397dff;
+  --projects-item_color: #E6F4F1;
+  --projects-item_color_active: #002670;
+  --description_bg: #ebeef5;
+}
+
 .theme-portfolio-components {
   --projects_bg: #8BAFCE;
   --projects-item_color: #F6F9FC;
   --projects-item_color_active: #394855;
-}
-
-.theme-kvast {
-  --projects_bg: #B08969;
-  --projects-item_color: #DFE0DF;
-  --projects-item_color_active: #834700;
 }
 
 .theme-contacts {

@@ -47,8 +47,8 @@
 }
 
 .site-on-device_phone .iframe-wrapper {
-  height: 48em;
-  width: 32em;
+  height: 480px;
+  width: 340px;
 }
 
 .site-on-device_tablet {
@@ -91,16 +91,16 @@
 
 @media (max-width: 1601px) and (min-width: 1281px) {
   .site-on-device_phone {
-    font-size: 0.9rem;
+    transform: scale(0.9);
   }
   .site-on-device_tablet {
-    font-size: 0.75rem;
+    transform: scale(1);
   }
 }
 
 @media (max-width: 1280px) and (min-width: 1025px) {
   .site-on-device_phone {
-    font-size: 0.9rem;
+    transform: scale(0.8);
   }
   .site-on-device_tablet {
     font-size: 0.7rem;

@@ -1,2 +1,0 @@
-(self.webpackChunkmy_portfolio_react_app=self.webpackChunkmy_portfolio_react_app||[]).push([[757],{757:function(t,e,o){"use strict";o.r(e),o.d(e,{default:function(){return n}}),o(294);var r=o(360),a=o(893);function n(){return(0,a.jsx)("div",{className:r.Z.photo})}}}]);
-//# sourceMappingURL=757.js.map

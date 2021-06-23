@@ -8,11 +8,15 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 let mode = "development";
 let target = "web";
+
+const isEnvDevelopment = process.env.NODE_ENV === 'development';
+const isEnvProduction = process.env.NODE_ENV === 'production';
+
 const plugins = [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin(),
   new HtmlWebpackPlugin({
-    template: "./src/index.html",
+    template: "./src/template.html",
     favicon: "./src/images/favicon.ico"
   }),
   new ImageMinimizerPlugin({
@@ -27,11 +31,10 @@ const plugins = [
   }),
 ];
 
-if (process.env.NODE_ENV === "production") {
+if (isEnvProduction) {
   mode = "production";
   target = "browserslist";
 }
-
 if (process.env.SERVE) {
   plugins.push(new ReactRefreshWebpackPlugin());
 }
@@ -42,6 +45,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
+    publicPath: isEnvProduction ? '' : '/',
     assetModuleFilename: "images/[hash][ext][query]",
   },
 
@@ -128,7 +132,8 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: "./dist",
+    historyApiFallback: true,
+    contentBase: "./build",
     hot: true,
   },
 };

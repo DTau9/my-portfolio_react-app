@@ -9,7 +9,7 @@ import styles from './app.module.css';
 import dataProjects from '../../data/dataProjects';
 import themes from '../../configs/themesToProjects';
 
-export default class Test extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.navMenuRef = createRef();

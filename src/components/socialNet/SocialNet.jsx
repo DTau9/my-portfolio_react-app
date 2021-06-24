@@ -8,7 +8,7 @@ const socialnetsData = [
   },
   {
     name: 'mail',
-    url: 'mailto:di.tau9@gmail.com'
+    url: 'mailto:taudmitrij@gmail.com'
   },
   {
     name: 'linkedin',

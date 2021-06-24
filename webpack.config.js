@@ -8,6 +8,9 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 let mode = "development";
 let target = "web";
+
+const isEnvProduction = process.env.NODE_ENV === 'production';
+
 const plugins = [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin(),
@@ -17,7 +20,7 @@ const plugins = [
   })
 ];
 
-if (process.env.NODE_ENV === "production") {
+if (isEnvProduction) {
   mode = "production";
   target = "browserslist";
 }
@@ -25,15 +28,17 @@ if (process.env.NODE_ENV === "production") {
 if (process.env.SERVE) {
   plugins.push(new ReactRefreshWebpackPlugin());
 }
-
+// работает на компе, но не собирается в верцель
 module.exports = {
   mode: mode,
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
     filename: 'static/js/[name].bundle.js',
-    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
-    publicPath: '',
+    chunkFilename: isEnvProduction
+      ? 'static/js/[name].[contenthash:8].chunk.js'
+      : 'static/js/[name].chunk.js',
+    publicPath: isEnvProduction ? '' : '/',
     assetModuleFilename: "static/images/[hash][ext][query]",
   },
 
@@ -51,7 +56,7 @@ module.exports = {
               },
             },
           },
-          "postcss-loader"
+          'postcss-loader'
         ],
       },
       {
@@ -61,8 +66,8 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: { publicPath: '' }
           },
-          "css-loader",
-          "postcss-loader"
+          'css-loader',
+          'postcss-loader'
         ],
       },
       {
@@ -120,7 +125,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: "./build",
+    contentBase: path.join(__dirname, 'build'),
     hot: true,
   },
 };

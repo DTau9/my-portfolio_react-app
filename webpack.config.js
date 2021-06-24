@@ -28,7 +28,7 @@ if (isEnvProduction) {
 if (process.env.SERVE) {
   plugins.push(new ReactRefreshWebpackPlugin());
 }
-// работает на компе, но не собирается в верцель
+
 module.exports = {
   mode: mode,
   entry: "./src/index.js",
